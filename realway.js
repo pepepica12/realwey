@@ -1,4 +1,9 @@
 const express = require('express');
+
+// Initialize Vercel Web Analytics
+const { inject } = require('@vercel/analytics');
+inject();
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 

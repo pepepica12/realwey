@@ -1,18 +1,22 @@
 // 1. Importar Express
 const express = require('express');
 
-// 2. Crear instancia de la app
+// 2. Initialize Vercel Web Analytics
+const { inject } = require('@vercel/analytics');
+inject();
+
+// 3. Crear instancia de la app
 const app = express();
 
-// 3. Definir la ruta raíz
+// 4. Definir la ruta raíz
 app.get('/', (req, res) => {
   res.send('Servidor activo y expuesto correctamente en Railway');
 });
 
-// 4. Definir el puerto dinámico para Railway
+// 5. Definir el puerto dinámico para Railway
 const PORT = process.env.PORT || 8080;
 
-// 5. Activar el servidor
+// 6. Activar el servidor
 app.listen(PORT, () => {
   console.log(`Servidor activo en el puerto ${PORT}`);
 });
