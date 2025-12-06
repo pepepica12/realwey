@@ -1,16 +1,18 @@
 const express = require('express');
-
-// Initialize Vercel Web Analytics
 const { inject } = require('@vercel/analytics');
 inject();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-  res.send('Servidor realway.js activo y trazable');
+  res.send('Servidor activo en Vercel');
 });
 
+app.get('/env', (req, res) => {
+  res.json(process.env);
+});
+
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Servidor realway.js corriendo en puerto ${PORT}`);
+  console.log(`Servidor activo en puerto ${PORT}`);
 });
