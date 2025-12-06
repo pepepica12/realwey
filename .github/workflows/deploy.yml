@@ -1,27 +1,4 @@
-name: Deploy to Railway
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Deploy to Railway
-        run: npx railway up --service=web
-        env:
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+# Archivo de referencia
+# El flujo de trabajo de Railway fue eliminado.
+# El proyecto ahora se despliega únicamente en Vercel.
+# Este archivo se mantiene como documentación.
