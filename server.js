@@ -1,3 +1,8 @@
+"main": "server.js",
+"scripts": {
+  "start": "node server.js"
+}
+
 // 1. Importar Express
 const express = require('express');
 
