@@ -1,18 +1,19 @@
-// 1. Importar Express
 const express = require('express');
-
-// 2. Crear instancia de la app
 const app = express();
+const port = process.env.PORT || 3000;
 
-// 3. Definir la ruta raíz
+// Endpoint raíz
 app.get('/', (req, res) => {
-  res.send('Servidor activo y expuesto correctamente en Railway');
+  res.send('Backend maestro activo 🚀');
 });
 
-// 4. Definir el puerto dinámico para Railway
-const PORT = process.env.PORT || 8080;
+// Endpoint para exponer variable protegida
+app.get('/api/env', (req, res) => {
+  res.json({
+    secret: process.env.VERCEL_PLATFORM_PROTECTION || "not found"
+  });
+});
 
-// 5. Activar el servidor
-app.listen(PORT, () => {
-  console.log(`Servidor activo en el puerto ${PORT}`);
+app.listen(port, () => {
+  console.log(`Servidor escuchando en http://localhost:${port}`);
 });
