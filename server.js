@@ -10,5 +10,5 @@ server.use(app);
 // Ruta RSS
 server.get("/rss", leerRSS);
 
-// Exportar para Vercel / Railway
+// Exportar para Railway / Vercel
 export default server;
