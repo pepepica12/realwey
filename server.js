@@ -11,4 +11,7 @@ server.use(app);
 server.get("/rss", leerRSS);
 
 // Exportar para Railway / Vercel
+server.get("/", (req, res) => {
+  res.send("Backend activo");
+});
 export default server;
