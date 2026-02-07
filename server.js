@@ -1,16 +1,14 @@
-// Re-export from index.js for Vercel compatibility
-import app from './index.js';
+import express from "express";
+import app from "./index.js";
+import { leerRSS } from "./rss.js";
 
-export default app;
-=======
-mport { leerRSS } from "./rss.js";
+const server = express();
 
-const express = require('express');
-const app = express();
+// Montar la app original
+server.use(app);
 
-app.get("/rss", leerRSS);
-app.get('/api/env', (req, res) => {
-  res.json({ secret: process.env.VERCEL_PLATFORM_PROTECTION || 'not set' });
-});
+// Ruta RSS
+server.get("/rss", leerRSS);
 
-module.exports = app;2d9ef45 (Agrego ruta /rss para leer feed RSS)
+// Exportar para Vercel / Railway
+export default server;
